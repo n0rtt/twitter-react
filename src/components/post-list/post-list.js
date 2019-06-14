@@ -7,7 +7,7 @@ const PostList = ({posts}) => {
 
     const elements = posts.map((item) => {
 
-        if (typeof item != 'object') {
+        if (typeof item != 'object' || item.id === undefined) {
             return null
         }
 
