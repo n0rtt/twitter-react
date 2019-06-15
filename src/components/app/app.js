@@ -35,7 +35,6 @@ export default class App extends Component {
         }
         this.deleteItem = this.deleteItem.bind(this)
         this.addItem = this.addItem.bind(this)
-        this.htmlId = idGenerator()
         this.maxId = 4
     }
 
@@ -52,6 +51,7 @@ export default class App extends Component {
     }
 
     addItem(body) {
+        this.htmlId = idGenerator()
         const newItem = {
             label: body,
             important: false,
