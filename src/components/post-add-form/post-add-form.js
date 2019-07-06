@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button } from 'reactstrap';
+import { Button } from 'reactstrap'
 
 import './post-add-form.css'
 
@@ -13,7 +13,7 @@ const PostAddForm = ({ onAdd }) => {
         e.preventDefault()
 
         if (text === '') {
-            return null 
+            return null
         } else {
             onAdd(text)
         }
@@ -39,4 +39,4 @@ const PostAddForm = ({ onAdd }) => {
     )
 }
 
-export default PostAddForm;
+export default PostAddForm

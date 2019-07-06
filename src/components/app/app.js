@@ -33,20 +33,20 @@ const App = () => {
     const [term, setTerm] = useState('')
     const [filter, setFilter] = useState('all')
 
-    const deleteItem = (id) => {
-        const index = data.findIndex(elem => elem.id === id)
-        const newArr = [...data.slice(0, index), ...data.slice(index + 1)]
-        setData(newArr)
-    }
-
-    const addItem = (body) => {
+    const addItem = (text) => {
         let htmlId = idGenerator()
         const newItem = {
-            label: body,
+            label: text,
             important: false,
             id: htmlId
         }
         const newArr = [...data, newItem]
+        setData(newArr)
+    }
+
+    const deleteItem = (id) => {
+        const index = data.findIndex(elem => elem.id === id)
+        const newArr = [...data.slice(0, index), ...data.slice(index + 1)]
         setData(newArr)
     }
 
@@ -70,16 +70,16 @@ const App = () => {
         setData(newArr)
     }
 
-    const searchPost = (items, term) => (term.length === 0) ? items : items.filter(item => item.label.indexOf(term) > -1)
-    const filterPost = (items, filter) => (filter === 'like') ? items.filter(items => items.like) : items
-
     const onUpdateSearch = term => setTerm(term)
     const onFilterSelect = filter => setFilter(filter)
 
-    const liked = data.filter(item => item.like).length
-    const allPosts = data.length
+    const searchPost = (items, term) => (term.length === 0) ? items : items.filter(item => item.label.indexOf(term) > -1)
+    const filterPost = (items, filter) => (filter === 'like') ? items.filter(items => items.like) : items
 
     const visiblePosts = filterPost(searchPost(data, term), filter)
+
+    const liked = data.filter(item => item.like).length
+    const allPosts = data.length
 
     return (
         <AppBlock>

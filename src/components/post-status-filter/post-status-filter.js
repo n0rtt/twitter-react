@@ -11,14 +11,18 @@ const PostStatusFilter = ({ filter, onFilterSelect }) => {
     )
 
     const buttonsUI = buttons.map(({ name, label }) => {
+
         const active = filter === name
-        const clazz = active ? 'btn-info' : 'btn-outline-secondary'
+        const btnClassName = active ? 'btn-info' : 'btn-outline-secondary'
+
         return (
             <button
                 key={name}
                 type="button"
-                className={`btn ${clazz}`}
-                onClick={() => onFilterSelect(name)}>{label}</button>
+                className={`btn ${btnClassName}`}
+                onClick={() => onFilterSelect(name)}>
+                {label}
+            </button>
         )
     })
 
@@ -26,7 +30,7 @@ const PostStatusFilter = ({ filter, onFilterSelect }) => {
         <div className="btn-group">
             {buttonsUI}
         </div>
-    );
+    )
 }
 
-export default PostStatusFilter;
+export default PostStatusFilter

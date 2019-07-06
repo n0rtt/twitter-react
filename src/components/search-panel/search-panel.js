@@ -20,7 +20,7 @@ const SearchPanel = (props) => {
             placeholder="Search posts"
             onChange={onUpdateSearch}
         />
-    );
+    )
 }
 
-export default SearchPanel;
+export default SearchPanel

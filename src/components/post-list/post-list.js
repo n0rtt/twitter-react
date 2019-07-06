@@ -8,6 +8,7 @@ const PostList = ({ posts, onDelete, onToggleImportant, onToggleLiked }) => {
 
     const elements = posts.map(item => {
 
+        // restrict empty post creation
         if (typeof item != 'object' || item.id === undefined) {
             return null
         }
