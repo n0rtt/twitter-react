@@ -2,9 +2,10 @@ import React from 'react'
 
 import './post-list-item.css'
 
-const PostListItem = ({label, onDelete, onToggleImportant, onToggleLiked, important, like}) => {
+const PostListItem = ({ label, onDelete, onToggleImportant, onToggleLiked, important, like }) => {
 
     let classNames = "app-list-item d-flex justify-content-between"
+
     if (important) {
         classNames += ' important'
     }
@@ -15,9 +16,9 @@ const PostListItem = ({label, onDelete, onToggleImportant, onToggleLiked, import
 
     return (
         <div className={classNames}>
-            <span 
-            className="app-list-item-label"
-            onClick={onToggleLiked}>
+            <span
+                className="app-list-item-label"
+                onClick={onToggleLiked}>
                 {label}
             </span>
             <div className="d-flex justify-content-center align-items-cemter">
