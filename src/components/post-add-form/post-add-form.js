@@ -1,54 +1,42 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Button } from 'reactstrap';
 
 import './post-add-form.css'
 
-export default class PostAddForm extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            text: ''
-        }
-        this.onValueChange = this.onValueChange.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
-    }
+const PostAddForm = ({ onAdd }) => {
 
-    onValueChange(e) {
-        this.setState({
-            text: e.target.value
-        })
-    }
+    const [text, setText] = useState('')
 
-    onSubmit(e) {
+    const onValueChange = e => setText(e.target.value)
+
+    const onSubmit = e => {
         e.preventDefault()
 
-        if (this.state.text === '') {
-            return null
+        if (text === '') {
+            return null 
         } else {
-            this.props.onAdd(this.state.text)
+            onAdd(text)
         }
 
-        this.setState({
-            text: ''
-        })
+        setText('')
     }
 
-    render() {
-        return (
-            <form
-                className="bottom-panel d-flex"
-                onSubmit={this.onSubmit}>
-                <input
-                    type="text"
-                    placeholder="What's on your mind?"
-                    className="form-control new-post-label"
-                    onChange={this.onValueChange}
-                    value={this.state.text}
-                />
-                <Button outline color="info" type="submit">
-                    Send
-                </Button>
-            </form>
-        )
-    }
+    return (
+        <form
+            className="bottom-panel d-flex"
+            onSubmit={onSubmit}>
+            <input
+                type="text"
+                placeholder="What's on your mind?"
+                className="form-control new-post-label"
+                onChange={onValueChange}
+                value={text}
+            />
+            <Button outline color="info" type="submit">
+                Send
+            </Button>
+        </form>
+    )
 }
+
+export default PostAddForm;

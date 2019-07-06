@@ -1,12 +1,10 @@
 import React from 'react'
-
-import './app-header.css'
 import styled from 'styled-components'
 
 const Header = styled.div`
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 
         h1 {
             font-size: 26px;
@@ -18,7 +16,7 @@ const Header = styled.div`
         }
 `
 
-const AppHeader = ({liked, allPosts}) => {
+const AppHeader = ({ liked, allPosts }) => {
     return (
         <Header>
             <h1>Miguel Osorio</h1>
